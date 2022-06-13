@@ -1,0 +1,9 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Weight habit tracker",
+        "version": "0.1.0",
+        "decription":"This is an MVP for this app"
+    }
+
+}
