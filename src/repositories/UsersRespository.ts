@@ -4,7 +4,7 @@ interface CreateUserDTO{
     name: string;
     email: string;
     password: string;
-    created_at: string;
+    created_at: Date;
 }
 
 class UserRepository{
@@ -24,3 +24,5 @@ class UserRepository{
         this.users.push(user)
     }
 }
+
+export {UserRepository}

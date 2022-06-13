@@ -1,10 +1,11 @@
 import { Request, Response, Router } from "express";
 import { AppDataSource } from "../database";
 import { User } from "../model/User";
+import { UserRepository } from "../repositories/UsersRespository";
 
 export const userRoute = Router();
 
-const users: User[] = []
+const userReposisotry = new UserRepository()
 
 // userRoute.get('/user', (request: Request, response: Response) =>{
 //     const dataSource = AppDataSource.manager.find('John')
@@ -17,14 +18,12 @@ const users: User[] = []
 userRoute.post('/user', (request: Request, response: Response) => {
     const {name, email, password} = request.body;
 
-    // const newUser: User = {name, email, password, created_at: new Date() }
-    const newUser = new User();
+    userReposisotry.create({
+        name, email, password, created_at: new Date()
+    })
 
-    newUser.create()
 
-    users.push(
-        newUser
-    )
 
-    return response.status(201).json(newUser)
+
+    return response.status(201).send()
 })
